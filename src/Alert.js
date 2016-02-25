@@ -6,6 +6,8 @@
  * All rights reserved.
  */
 
+let React = require('react'); 
+let ReactDOM = require('react-dom');
 let classnames = require('classnames');
 
 class Alert extends React.Component {
