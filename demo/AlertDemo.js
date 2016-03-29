@@ -49,7 +49,8 @@ class Demo extends React.Component {
                 <Alert message={' 这是一个 message'} type="message" closable={true} closeText="不再显示" />
                 <h1>带有描述性文字</h1>
                 <Alert message={' 这是一个 message'} description="这里是描述" type="message"/>
-
+                <h1>全局提示</h1>
+                <Alert message={' 这是一个 message'} description="这里是描述" type="message" size="large" closable={true} />
             </div>
         );
     }

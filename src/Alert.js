@@ -63,9 +63,9 @@ class Alert extends React.Component {
             [`${prefixCls} ${prefixCls}-${type}`]: true,
             [className]: !!className && !closable && !description && !hasContainer
         })}>
-                    <i className={`${prefixCls}-icon ${iconPrefixCls} ${iconPrefixCls}-${iconType}`}></i>
-                    <span>{me.props.message}</span>
-                </p>
+            <i className={`${prefixCls}-icon ${iconPrefixCls} ${iconPrefixCls}-${iconType}`}></i>
+            <span>{me.props.message}</span>
+        </p>
     }
 
     renderDes() {
@@ -103,7 +103,8 @@ class Alert extends React.Component {
             closable,
             hasContainer,
             description,
-            className
+            className,
+            size
         } = me.props;
         let html;
         let content = me.renderContent();
@@ -111,7 +112,8 @@ class Alert extends React.Component {
             html = <div className={classnames({
                 [`${prefixCls}-container ${prefixCls}-container-${type}`]: true,
                 [`${prefixCls}-container-closable`]: closable,
-                [className]: !!className
+                [className]: !!className,
+                [`${prefixCls}-size-large`]: size === 'large'
             })}>
                         {content}
                         {me.renderDes()}
@@ -130,7 +132,8 @@ Alert.defaultProps = {
     iconPrefixCls: 'kuma-icon',
     type: 'message',
     onClose: () => {},
-    hasContainer: false
+    hasContainer: false,
+    size: 'normal'
 }
 
 
@@ -153,7 +156,8 @@ Alert.propTypes = {
         React.PropTypes.element,
         React.PropTypes.string
     ]),
-    onClose: React.PropTypes.func
+    onClose: React.PropTypes.func,
+    size: React.PropTypes.oneOf(['normal', 'large'])
 
 }
 

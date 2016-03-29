@@ -38,4 +38,5 @@ http://uxcore.github.io/
 |message|string or react element|required|-|提示文案|
 |description|string or react element|optional|描述文字，将自动包含外层容器|
 |onClose|function|optional|noop|在警告关闭时触发，传回 event|
+|size|string|optional|'normal'| 配置提示框大小，可选`large` |
 

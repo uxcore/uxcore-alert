@@ -11,11 +11,10 @@
 @tiptextPrefix: kuma-alert;
 .@{tiptextPrefix} {
     position: relative;
-    *zoom: 1;
-    color: @tip-color;
+    color: @text-seconary-color;
 
     &-follow {
-        padding-left: 21px;
+        padding-left: 26px;
     }
 
     .kuma-button {
@@ -27,158 +26,108 @@
 
     &-icon {
         display: inline-block;
+        vertical-align: middle;
+        & + span {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
     }
 
     &-container {
         padding: 8px 12px 8px 12px;
         position: relative;
-        *zoom: 1;
-    }
-
-    &-container-closable {
-        padding: 8px 28px 8px 12px;
     }
 
     //普通信息提示
     &-message {
         .@{tiptextPrefix}-icon {
-            color: @tip-msg-icon-color;
+            color: @brand-info;
+        }
+    }
+    
+    .message-generator(@base-color, @base-color-light, @saturation-diff,  @value-diff){
+        border: 1px solid hsv(round(hsvhue(@base-color)), round(hsvsaturation(@base-color) - @saturation-diff), round(hsvvalue(@base-color) + @value-diff));
+        background: @base-color-light;
+        .@{tiptextPrefix}-arrow {
+            em {
+                color: hsv(round(hsvhue(@base-color)), round(hsvsaturation(@base-color) - @saturation-diff), round(hsvvalue(@base-color) + @value-diff));
+            }
+
+            span {
+                color: @base-color-light;
+            }
         }
     }
 
     &-container-message {
-        border: 1px solid @tip-msg-box-border;
-        background: @tip-msg-box-bg;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-msg-arrow-border;
-            }
-
-            span {
-                color: @tip-msg-arrow-bg;
-            }
-        }
+        .message-generator(@brand-info, @brand-info-light, 55%, 5%);
     }
 
     //成功提示
     &-success {
         .@{tiptextPrefix}-icon {
-            color: @tip-success-icon-color;
+            color: @brand-success;
         }
     }
 
     &-container-success {
-        background: @tip-success-box-bg;
-        border: 1px solid @tip-success-box-border;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-success-arrow-border;
-            }
-            span {
-                color: @tip-success-arrow-bg;
-            }
-
-        }
+        .message-generator(@brand-success, @brand-success-light, 36%, 11%);
     }
 
     //错误提示
     &-error {
         .@{tiptextPrefix}-icon {
-            color: @tip-error-icon-color;
+            color: @brand-danger;
         }
     }
 
     &-container-error {
-        background: @tip-error-box-bg;
-        border: 1px solid @tip-error-box-border;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-error-arrow-border;
-            }
-            span {
-                color: @tip-error-arrow-bg;
-            }
-        }
+        .message-generator(@brand-danger, @brand-danger-light, 65%, 1%);
     }
 
     //警告提示
     &-warning {
         .@{tiptextPrefix}-icon {
-            color: @tip-warning-icon-color;
+            color: @brand-warning;
         }
     }
 
     &-container-warning {
-        background: @tip-warning-box-bg;
-        border: 1px solid @tip-warning-box-border;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-warning-arrow-border;
-            }
-            span {
-                color: @tip-warning-arrow-bg;
-            }
-        }
+        .message-generator(@brand-warning, @brand-warning-light, 68%, -1%);
     }
 
     //疑问提示
     &-question {
         .@{tiptextPrefix}-icon {
-            color: @tip-question-icon-color;
+            color: @brand-query;
         }
     }
 
     &-container-question {
-        border: 1px solid @tip-question-box-border;
-        background: @tip-question-box-bg;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-question-arrow-border;
-            }
-            span {
-                color: @tip-question-arrow-bg;
-            }
-        }
+        .message-generator(@brand-query, @brand-query-light, 69%, 4%);
     }
 
     //阻止提示
     &-stop {
         .@{tiptextPrefix}-icon {
-            color: @tip-stop-icon-color;
+            color: @brand-danger;
         }
     }
 
     &-container-stop {
-        background: @tip-stop-box-bg;
-        border: 1px solid @tip-stop-box-border;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-stop-arrow-border;
-            }
-            span {
-                color: @tip-stop-arrow-bg;
-            }
-        }
+        .message-generator(@brand-danger, @brand-danger-light, 65%, 1%);
     }
 
     //等待提示
     &-wait {
         .@{tiptextPrefix}-icon {
-            color: @tip-wait-icon-color;
+            color: @brand-info;
         }
     }
 
     &-container-wait {
-        border: 1px solid @tip-wait-box-border;
-        background: @tip-wait-box-bg;
-        .@{tiptextPrefix}-arrow {
-            em {
-                color: @tip-wait-arrow-border;
-            }
-            span {
-                color: @tip-wait-arrow-bg;
-            }
-        }
+        .message-generator(@brand-info, @brand-info-light, 55%, 5%);
     }
 
     &-arrowup,
@@ -233,10 +182,20 @@
     &-close {
         position: absolute;
         right: 10px;
-        top: 8px;
-        color: @tip-close-color;
+        top: 10px;
+        color: @gray-lighter;
         cursor: pointer;
-        line-height: 22px;
+    }
+    
+    &-size-large {
+        padding: 8px 20px;
+        font-size: 14px;
+        .@{tiptextPrefix}-icon {
+            font-size: 22px;    
+        }
+        .@{tiptextPrefix}-follow {
+            padding-left: 32px;
+        }
     }
 }
 
