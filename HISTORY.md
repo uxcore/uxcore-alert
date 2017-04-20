@@ -1,3 +1,9 @@
+# 0.3.0
+
+* `CHANGED` new icon
+* `CHANGED` new style
+* `CHANGED` eslint
+
 # 0.2.2
 
 * `FIX` fix style bug when text is wrapped

@@ -6,12 +6,11 @@
  * All rights reserved.
  */
 
- //+++++=====*** 基于 variables->tip.less
-/* tiptext 样式模块 */
-@tiptextPrefix: kuma-alert;
-.@{tiptextPrefix} {
+
+@alertPrefixCls: kuma-alert;
+.@{alertPrefixCls} {
     position: relative;
-    color: @text-secondary-color;
+    color: @normal-alpha-2;
 
     &-follow {
         padding-left: 26px;
@@ -27,27 +26,29 @@
     &-icon {
         vertical-align: middle;
         & + span {
-            margin-left: 10px;
+            margin-left: 7px;
             vertical-align: middle;
         }
     }
 
     &-container {
-        padding: 8px 12px 8px 12px;
+        padding: 6px 16px;
         position: relative;
+        .@{alertPrefixCls}-icon + span {
+            margin-left: 12px;
+        }
     }
 
     //普通信息提示
     &-message {
-        .@{tiptextPrefix}-icon {
-            color: @brand-info;
+        .@{alertPrefixCls}-icon {
+            color: @brand-link;
         }
     }
     
     .message-generator(@base-color, @base-color-light, @saturation-diff,  @value-diff){
-        border: 1px solid hsv(round(hsvhue(@base-color)), round(hsvsaturation(@base-color) - @saturation-diff), round(hsvvalue(@base-color) + @value-diff));
         background: @base-color-light;
-        .@{tiptextPrefix}-arrow {
+        .@{alertPrefixCls}-arrow {
             em {
                 color: hsv(round(hsvhue(@base-color)), round(hsvsaturation(@base-color) - @saturation-diff), round(hsvvalue(@base-color) + @value-diff));
             }
@@ -59,56 +60,56 @@
     }
 
     &-container-message {
-        .message-generator(@brand-info, @brand-info-light, 55%, 5%);
+        background: @brand-link-alpha-7;
     }
 
     //成功提示
     &-success {
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             color: @brand-success;
         }
     }
 
     &-container-success {
-        .message-generator(@brand-success, @brand-success-light, 36%, 11%);
+       background: @brand-success-alpha-7;
     }
 
     //错误提示
     &-error {
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             color: @brand-danger;
         }
     }
 
     &-container-error {
-        .message-generator(@brand-danger, @brand-danger-light, 65%, 1%);
+        background: @brand-danger-alpha-7;
     }
 
     //警告提示
     &-warning {
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             color: @brand-warning;
         }
     }
 
     &-container-warning {
-        .message-generator(@brand-warning, @brand-warning-light, 68%, -1%);
+        background: @brand-warning-alpha-7;
     }
 
     //疑问提示
     &-question {
-        .@{tiptextPrefix}-icon {
-            color: @brand-query;
+        .@{alertPrefixCls}-icon {
+            color: @brand-link;
         }
     }
 
     &-container-question {
-        .message-generator(@brand-query, @brand-query-light, 69%, 4%);
+        background: @brand-link-alpha-7;
     }
 
     //阻止提示
     &-stop {
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             color: @brand-danger;
         }
     }
@@ -119,7 +120,7 @@
 
     //等待提示
     &-wait {
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             color: @brand-info;
         }
     }
@@ -181,17 +182,18 @@
         position: absolute;
         right: 10px;
         top: 10px;
-        color: @gray-lighter;
+        color: @dark-alpha-2;
+        line-height: 1;
         cursor: pointer;
     }
     
     &-size-large {
         padding: 8px 20px;
         font-size: 14px;
-        .@{tiptextPrefix}-icon {
+        .@{alertPrefixCls}-icon {
             font-size: 22px;    
         }
-        .@{tiptextPrefix}-follow {
+        .@{alertPrefixCls}-follow {
             padding-left: 32px;
         }
     }
