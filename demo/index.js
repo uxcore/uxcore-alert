@@ -5,6 +5,8 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
+const React = require('react');
+const ReactDOM = require('react-dom');
 
- var Demo = require('./AlertDemo');
- ReactDOM.render(<Demo/>, document.getElementById('UXCoreDemo'));
+const Demo = require('./AlertDemo');
+ReactDOM.render(<Demo />, document.getElementById('UXCoreDemo'));

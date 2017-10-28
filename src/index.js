@@ -6,4 +6,7 @@
  * All rights reserved.
  */
 
-module.exports = require('./Alert');
+import Alert from './Alert';
+
+export default Alert;
+
