@@ -5,8 +5,8 @@
  * Copyright 2014-2015, Uxcore Team, Alinw.
  * All rights reserved.
  */
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Demo = require('./AlertDemo');
+import Demo from './AlertDemo';
 ReactDOM.render(<Demo />, document.getElementById('UXCoreDemo'));

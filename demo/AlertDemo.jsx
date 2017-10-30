@@ -6,12 +6,12 @@
  * All rights reserved.
  */
 
-const React = require('react');
-const Button = require('uxcore-button');
+import React from 'react';
+import Button from 'uxcore-button';
 
-const Alert = require('../src');
+import Alert from '../src';
 
-class Demo extends React.Component {
+export default class Demo extends React.Component {
 
   constructor(props) {
     super(props);
@@ -62,5 +62,3 @@ error这是一个 error'}
     );
   }
 }
-
-module.exports = Demo;
