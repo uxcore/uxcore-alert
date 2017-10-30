@@ -6,12 +6,12 @@
  * All rights reserved.
  */
 
-const React = require('react');
-const Button = require('uxcore-button');
+import React from 'react';
+import Button from 'uxcore-button';
 
-const Alert = require('../src');
+import Alert from '../src';
 
-class Demo extends React.Component {
+export default class Demo extends React.Component {
 
   constructor(props) {
     super(props);
@@ -36,7 +36,14 @@ class Demo extends React.Component {
         <Alert message={' 这是一个 wait'} type="wait" />
         <h1>带有外部容器</h1>
         <Alert className="alert1" message={' 这是一个 message'} type="message" hasContainer />
-        <Alert message={' 这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 error'} type="error" hasContainer />
+        <Alert
+          message={' 这是一个 error这是一个 error这是一个 error这是一个 \
+error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 \
+error这是一个 error这是一个 error这是一个 error这是一个 error这是一个 \
+error这是一个 error'}
+          type="error"
+          hasContainer
+        />
         <Alert message={' 这是一个 warning'} type="warning" hasContainer />
         <Alert message={' 这是一个 success'} type="success" hasContainer />
         <Alert message={' 这是一个 question'} type="question" hasContainer />
@@ -55,5 +62,3 @@ class Demo extends React.Component {
     );
   }
 }
-
-module.exports = Demo;

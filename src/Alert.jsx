@@ -6,9 +6,10 @@
  * All rights reserved.
  */
 
-const React = require('react');
-const classnames = require('classnames');
-const Icon = require('uxcore-icon');
+import React from 'react';
+import classnames from 'classnames';
+import Icon from 'uxcore-icon';
+import PropTypes from 'prop-types';
 
 class Alert extends React.Component {
 
@@ -63,7 +64,8 @@ class Alert extends React.Component {
       >
         <i
           className={classnames(`${prefixCls}-icon ${iconClassName}`, {
-            [`${iconPrefixCls} ${iconPrefixCls}-${type}`]: ['kuma-icon', 'uxcore-icon'].indexOf(iconPrefixCls) === -1,
+            [`${iconPrefixCls} ${iconPrefixCls}-${type}`]: ['kuma-icon',
+              'uxcore-icon'].indexOf(iconPrefixCls) === -1,
           })}
         />
         <span>{me.props.message}</span>
@@ -90,9 +92,18 @@ class Alert extends React.Component {
     } = me.props;
     if (me.props.closable) {
       if (me.props.closeText) {
-        return <span className={`${prefixCls}-close`} onClick={me.handleClose.bind(me)}>{me.props.closeText}</span>;
+        return (<span
+          className={`${prefixCls}-close`}
+          onClick={me.handleClose.bind(me)}
+        >
+          {me.props.closeText}
+        </span>);
       }
-      return <Icon name="biaoqian-qingchu" className={`${prefixCls}-close`} onClick={(e) => { this.handleClose(e); }} />;
+      return (<Icon
+        name="biaoqian-qingchu"
+        className={`${prefixCls}-close`}
+        onClick={(e) => { this.handleClose(e); }}
+      />);
     }
     return null;
   }
@@ -143,28 +154,29 @@ Alert.defaultProps = {
 
 // http://facebook.github.io/react/docs/reusable-components.html
 Alert.propTypes = {
-  prefixCls: React.PropTypes.string,
-  iconPrefixCls: React.PropTypes.string,
-  type: React.PropTypes.oneOf(['message', 'error', 'warning', 'success', 'question', 'stop', 'wait']),
-  closable: React.PropTypes.bool,
-  hasContainer: React.PropTypes.bool,
-  closeText: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
+  prefixCls: PropTypes.string,
+  iconPrefixCls: PropTypes.string,
+  type: PropTypes.oneOf(['message', 'error', 'warning', 'success',
+    'question', 'stop', 'wait']),
+  closable: PropTypes.bool,
+  hasContainer: PropTypes.bool,
+  closeText: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ]),
-  message: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
+  message: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ]),
-  description: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ]),
-  onClose: React.PropTypes.func,
-  size: React.PropTypes.oneOf(['normal', 'large']),
+  onClose: PropTypes.func,
+  size: PropTypes.oneOf(['normal', 'large']),
 
 };
 
 Alert.displayName = 'Alert';
 
-module.exports = Alert;
+export default Alert;
