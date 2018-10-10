@@ -34,21 +34,21 @@
     &-container {
         padding: 6px 16px;
         position: relative;
-        .@{alertPrefixCls}-icon + span {
+        .@{__alertPrefixCls}-icon + span {
             margin-left: 12px;
         }
     }
 
     //普通信息提示
     &-message {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-link;
         }
     }
 
     .message-generator(@base-color, @base-color-light, @saturation-diff,  @value-diff){
         background: @base-color-light;
-        .@{alertPrefixCls}-arrow {
+        .@{__alertPrefixCls}-arrow {
             em {
                 color: hsv(round(hsvhue(@base-color)), round(hsvsaturation(@base-color) - @saturation-diff), round(hsvvalue(@base-color) + @value-diff));
             }
@@ -65,7 +65,7 @@
 
     //成功提示
     &-success {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-success;
         }
     }
@@ -76,7 +76,7 @@
 
     //错误提示
     &-error {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-danger;
         }
     }
@@ -87,7 +87,7 @@
 
     //警告提示
     &-warning {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-warning;
         }
     }
@@ -98,7 +98,7 @@
 
     //疑问提示
     &-question {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-link;
         }
     }
@@ -109,7 +109,7 @@
 
     //阻止提示
     &-stop {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-danger;
         }
     }
@@ -120,7 +120,7 @@
 
     //等待提示
     &-wait {
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             color: @brand-info;
         }
     }
@@ -190,10 +190,10 @@
     &-size-large {
         padding: 8px 20px;
         font-size: 14px;
-        .@{alertPrefixCls}-icon {
+        .@{__alertPrefixCls}-icon {
             font-size: 22px;
         }
-        .@{alertPrefixCls}-follow {
+        .@{__alertPrefixCls}-follow {
             padding-left: 38px;
         }
     }
